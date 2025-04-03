@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./Routes/Landing";
 import Profile from "./Routes/Profile";
-import Navbar from "./Components/Navbar";
+import Navbar from "./Components/Navbar/Navbar";
 import About from "./Routes/About";
 import Services from "./Routes/Services";
 import Contact from "./Routes/Contact";

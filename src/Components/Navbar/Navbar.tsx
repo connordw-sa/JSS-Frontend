@@ -1,23 +1,42 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
-import "../Styles/Navbar.css";
-import logoDark from "../assets/logo-dark.jpg";
+import { useState, useEffect, useRef } from "react";
+import "./Navbar.css";
+import logoDark from "../../assets/logo-dark.jpg";
 
 // imports ----------------------------------------------------------
 
 export default function Navbar() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
-
+  const sidebarRef = useRef<HTMLDivElement>(null);
   // toggle for sidebar
   // close sidebar if user does navigate to different page
   const toggleSidebar = () => {
-    setIsSidebarOpen((prev) => !prev);
+    console.log("opening sidebar");
+    setSidebarOpen((prev) => !prev);
   };
-
   useEffect(() => {
-    setIsSidebarOpen(false);
+    setSidebarOpen(false);
   }, [location.pathname]);
+
+  // useRef for sidebar so that react detects outside click
+  useEffect(() => {
+    if (!sidebarOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node)
+      ) {
+        setSidebarOpen(false);
+      }
+    };
+    // need to use mousedown instead of click to fire earlier
+    // navbar elements were stoppingg propogation
+    document.addEventListener("mousedown", handleClickOutside);
+    // clean up the event listener
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [sidebarOpen]);
 
   return (
     <>
@@ -49,7 +68,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className={`navbar-sidebar ${isSidebarOpen ? "active" : ""}`}>
+      <div
+        ref={sidebarRef}
+        className={`navbar-sidebar ${sidebarOpen ? "active" : ""}`}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="nav-links-sidebar">
           <button className="nav-arrow-sidebar" onClick={toggleSidebar}>
             arrow Logo here

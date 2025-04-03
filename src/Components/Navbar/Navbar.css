@@ -90,6 +90,7 @@ a {
   }
 
   .navbar-sidebar.active {
+    display: block;
     left: 0;
   }
 
