@@ -84,14 +84,16 @@ a {
     position: fixed;
     top: 0;
     left: -50vw;
-    transition: left 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out, visibility 0s linear 0.3s;
     z-index: 1000;
     opacity: 95%;
+    visibility: hidden;
   }
 
   .navbar-sidebar.active {
-    display: block;
     left: 0;
+    visibility: visible;
+    transition: left 0.3s ease-in-out;
   }
 
   .nav-hamburger {
