@@ -14,8 +14,7 @@ export function useHandleClickPage(
       }
     };
     // need to use mousedown instead of click to fire earlier
-    // navbar elements were stoppingg propogation but adding
-    // stopPropogation() to sidebar wont work
+    // navbar elements were stoppingg propogation
     document.addEventListener("mousedown", handleClickPage);
     // clean up the event listener
     return () => document.removeEventListener("mousedown", handleClickPage);

@@ -1,5 +1,35 @@
+import { useEffect } from "react";
+
 export default function Landing() {
+  useEffect(() => {
+    const fetchUsers = async (): Promise<void> => {
+      try {
+        const response = await fetch("http://localhost:3001/user", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const user = await response.text();
+        console.log(user);
+      } catch (error) {
+        console.error(
+          "error fetching user:",
+          error instanceof Error ? error.message : error
+        );
+      }
+    };
+
+    fetchUsers();
+  }, []);
   return (
+    // test
+
     <div>
       <div className="landing-hero-section"></div>
       <h1>Landing</h1>
