@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+// imports ----------------------------------------------------------
+
 interface SidebarProps {
   sidebarOpen: boolean;
   toggleSidebar: () => void;

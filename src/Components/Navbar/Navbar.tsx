@@ -10,21 +10,16 @@ import Sidebar from "./SIdebar";
 export default function Navbar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
-
-  // custom hook is expecting obj but ref can be null
   const sidebarRef = useRef<HTMLDivElement | null>(null);
 
-  // callback for sidebar state
   const toggleSidebar = () => {
     setSidebarOpen((prev) => !prev);
   };
 
-  // close sidebar if user does navigate to different page
   useEffect(() => {
     setSidebarOpen(false);
   }, [location.pathname]);
 
-  // pass ref and callback to custom hook
   useHandleClickPage(sidebarRef, () => setSidebarOpen(false));
 
   return (

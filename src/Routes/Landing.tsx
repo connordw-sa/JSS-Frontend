@@ -1,32 +1,13 @@
+import { fetchUser } from "../utils/HelperFunctions";
 import { useEffect } from "react";
+
+// imports ----------------------------------------------------------
 
 export default function Landing() {
   useEffect(() => {
-    const fetchUsers = async (): Promise<void> => {
-      try {
-        const response = await fetch("http://localhost:3001/user", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const user = await response.text();
-        console.log(user);
-      } catch (error) {
-        console.error(
-          "error fetching user:",
-          error instanceof Error ? error.message : error
-        );
-      }
-    };
-
-    fetchUsers();
+    fetchUser();
   }, []);
+
   return (
     // test
 
