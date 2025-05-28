@@ -3,6 +3,24 @@
   margin: 0;
   padding: 0;
 }
+/* COMMON STYLES */
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* .heading-Font,
+.subHeading-Font {
+  font-family: Georgia, serif;
+} */
+
+.heading-Font {
+  font-weight: bold;
+}
+
+/* .bodyText {
+} */
 
 html,
 body {
@@ -10,8 +28,20 @@ body {
   padding: 0;
 }
 
-p {
-  color: orange;
-  font-weight: 600;
-  font-size: 1.5rem;
+@font-face {
+  font-family: "Georgia Pro";
+  src: url("./assets/fonts/GeorgiaPro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Georgia Pro";
+  src: url("./assets/fonts/GeorgiaPro-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  font-family: "Georgia Pro", serif !important;
 }

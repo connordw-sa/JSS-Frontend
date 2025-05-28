@@ -1,0 +1,62 @@
+.landing-hero-section {
+  margin: 0 0 7vh;
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+  > img {
+    width: 100%;
+    inset: 0;
+    max-height: 60vh;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1000;
+  }
+}
+
+/* .text {
+  margin-top: 40rem;
+} */
+.hero-text {
+  margin-left: 5%;
+  > h1 {
+    font-size: clamp(2rem, 5vw, 5rem);
+    color: white;
+  }
+  > p {
+    color: white;
+  }
+}
+
+.wrapper {
+  margin: 0 10vw;
+}
+.offer-card-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.offer-section {
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-left: 3vw;
+  }
+}
+
+.offer-card {
+  img {
+    height: 35vh;
+    width: 20vw;
+    border-radius: 15px;
+  }
+}
+
+.affiliation-section {
+  > img {
+    width: 100%;
+    inset: 0;
+    max-height: 60vh;
+    object-fit: cover;
+
+    z-index: -1000;
+  }
+}

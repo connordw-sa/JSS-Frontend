@@ -8,15 +8,12 @@ export async function fetchUser(): Promise<void> {
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`error: ${response.status}`);
     }
 
     const user = await response.text();
     console.log(user);
   } catch (error) {
-    console.log(
-      "error fetching user:",
-      error instanceof Error ? error.message : error
-    );
+    console.log("error fetching user:", error);
   }
 }

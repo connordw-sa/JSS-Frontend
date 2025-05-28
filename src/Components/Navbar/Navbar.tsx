@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
-import logoDark from "../../assets/logo-dark.jpg";
+import logoDark from "../../assets/logo-light.jpg";
 import { useHandleClickPage } from "../../utils/CustomHooks";
 import Sidebar from "./SIdebar";
 
@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="nav-parent">
+      <div className="nav-parent subHeading-Font">
         <button className="nav-hamburger" onClick={toggleSidebar}>
           ☰
         </button>
@@ -46,7 +46,7 @@ export default function Navbar() {
           </Link>
           <button className="nav-profile-link">
             <Link to="/Profile">
-              <h2>Profile</h2>
+              <h2 className="this">Profile</h2>
             </Link>
           </button>
         </div>
