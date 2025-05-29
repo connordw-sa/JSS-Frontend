@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
 import logoDark from "../../assets/logo-light.jpg";
 import { useHandleClickPage } from "../../utils/CustomHooks";
-import Sidebar from "../Sidebar/SIdebar";
+import Sidebar from "../Sidebar/Sidebar";
 
 // imports ----------------------------------------------------------
 
@@ -37,12 +37,15 @@ export default function Navbar() {
         <div className="nav-links">
           <Link to="/About">
             <h2>About</h2>
+            <hr />
           </Link>
           <Link to="/Services">
             <h2>Services</h2>
+            <hr />
           </Link>
           <Link to="/Contact">
             <h2>Contact</h2>
+            <hr />
           </Link>
           <button className="nav-profile-link">
             <Link to="/Profile">
