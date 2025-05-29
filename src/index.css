@@ -2,12 +2,12 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
+  --secondaryLightFont: #fadb67;
 }
 /* COMMON STYLES */
 
 a {
   text-decoration: none;
-  color: black;
 }
 
 /* .heading-Font,

@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
 import logoDark from "../../assets/logo-light.jpg";
 import { useHandleClickPage } from "../../utils/CustomHooks";
-import Sidebar from "./SIdebar";
+import Sidebar from "../Sidebar/SIdebar";
 
 // imports ----------------------------------------------------------
 
@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="nav-parent subHeading-Font">
+      <div className="nav-parent">
         <button className="nav-hamburger" onClick={toggleSidebar}>
           ☰
         </button>
