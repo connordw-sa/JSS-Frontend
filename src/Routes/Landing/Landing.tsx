@@ -1,12 +1,65 @@
 import { fetchUser } from "../../utils/HelperFunctions";
-import { useEffect } from "react";
-import heroImg from "../../assets/landing.jpg";
+import { useEffect, useState } from "react";
+import heroImg from "../../assets/hero.png";
 import "./Landing.css";
 // imports ----------------------------------------------------------
 
 export default function Landing() {
   useEffect(() => {
     fetchUser();
+    const interval = setInterval(next, AUTO_ADVANCE_INTERVAL);
+    return () => clearInterval(interval);
+  }, []);
+
+  const TOTAL_ITEMS = 5;
+  const VISIBLE_ITEMS = 3;
+  const AUTO_ADVANCE_INTERVAL = 2000;
+  const items = Array.from({ length: TOTAL_ITEMS }, (_, i) => ({
+    id: i,
+    img: heroImg,
+    caption: `Lorem ipsum ${i + 1}`,
+  }));
+  const [startIndex, setStartIndex] = useState(0);
+
+  const next = () => {
+    setStartIndex((prev) => (prev + 1) % TOTAL_ITEMS);
+  };
+
+  const prev = () => {
+    setStartIndex((prev) => (prev - 1 + TOTAL_ITEMS) % TOTAL_ITEMS);
+  };
+
+  const getVisibleItems = () => {
+    return Array.from(
+      { length: VISIBLE_ITEMS },
+      (_, i) => items[(startIndex + i) % TOTAL_ITEMS]
+    );
+  };
+
+  useEffect(() => {
+    const heroHeading = document.querySelector(
+      ".hero-text .hero-title"
+    ) as HTMLElement | null;
+
+    if (heroHeading) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            heroHeading.classList.remove("animate-pop");
+            void heroHeading.offsetWidth;
+            heroHeading.classList.add("animate-pop");
+            console.log("intersecting");
+          } else {
+            heroHeading.classList.remove("animate-pop");
+          }
+        },
+        { threshold: 0.1 }
+      );
+
+      observer.observe(heroHeading);
+
+      return () => observer.disconnect();
+    }
   }, []);
 
   return (
@@ -14,18 +67,23 @@ export default function Landing() {
 
     <div>
       <section className="landing-hero-section">
-        <img src={heroImg} />
+        <img className="hero-img" src={heroImg} />
         <div className="hero-text">
           {" "}
-          <h1>Welcome to JSS Coaching</h1>
-          <p>This text can be changed in size</p>
-          <p>And color</p>
+          <h1 className="hero-titles">I'M GOING FOR A SMOKE.</h1>
+          <h1 className="hero-title"> You're here to rise.</h1>
+          <h2>
+            Through immersive retreats, transformational life coaching and{" "}
+            <br />
+            strategic executive support, I help indifiduals rise to their
+            fullest potential.
+          </h2>
         </div>
       </section>
       <div className="wrapper">
         <section className="offer-section">
           {" "}
-          <h1>What we offer</h1>
+          <h1>Our Services</h1>
           <div className="offer-card-wrapper">
             <div className="offer-card">
               <img src={heroImg} />
@@ -45,8 +103,19 @@ export default function Landing() {
           </div>
         </section>
         <section className="affiliation-section">
-          <h1>This will be the carousel</h1>
-          <img src={heroImg} />
+          <h1>This will be the carousel of affiliations and partnerships</h1>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <button onClick={prev}>&larr;</button>
+            <div style={{ display: "flex", gap: "1rem" }}>
+              {getVisibleItems().map((item) => (
+                <div key={item.id}>
+                  <img src={item.img} alt="Affiliation" width={150} />
+                  <p>{item.caption}</p>
+                </div>
+              ))}
+            </div>
+            <button onClick={next}>&rarr;</button>
+          </div>
         </section>
         <section className="review-section"></section>
       </div>

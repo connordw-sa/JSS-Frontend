@@ -1,9 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
-import logoDark from "../../assets/logo-light.jpg";
+import logoDark from "../../assets/logo-blue.jpg";
 import { useHandleClickPage } from "../../utils/CustomHooks";
 import Sidebar from "../Sidebar/Sidebar";
+import avatar from "../../assets/avatar.webp";
 
 // imports ----------------------------------------------------------
 
@@ -37,19 +38,16 @@ export default function Navbar() {
         <div className="nav-links">
           <Link to="/About">
             <h2>About</h2>
-            <hr />
           </Link>
           <Link to="/Services">
             <h2>Services</h2>
-            <hr />
           </Link>
           <Link to="/Contact">
             <h2>Contact</h2>
-            <hr />
           </Link>
           <button className="nav-profile-link">
             <Link to="/Profile">
-              <h2 className="this">Profile</h2>
+              <img src={avatar} alt="avatar" />
             </Link>
           </button>
         </div>

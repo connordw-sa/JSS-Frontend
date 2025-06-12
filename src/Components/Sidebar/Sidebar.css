@@ -1,6 +1,6 @@
-/* .navbar-sidebar {
+.navbar-sidebar {
   display: none;
-} */
+}
 
 @media (max-width: 991px) {
   .nav-parent {

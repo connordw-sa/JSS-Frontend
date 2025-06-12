@@ -14,6 +14,6 @@ export async function fetchUser(): Promise<void> {
     const user = await response.text();
     console.log(user);
   } catch (error) {
-    console.log("error fetching user:", error);
+    console.log("error fetching user data:", error);
   }
 }

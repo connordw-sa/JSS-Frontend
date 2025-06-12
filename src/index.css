@@ -4,6 +4,7 @@
   padding: 0;
   --secondaryOrangeFont: #fadb67;
   --secondaryLightBlueFont: #3aa1aa;
+  --primaryDarkFont: #213334;
 }
 
 @font-face {
@@ -19,21 +20,32 @@
   font-weight: bold;
   font-style: normal;
 }
-
+/* 
 html {
   overflow-y: scroll;
-}
+} */
 
 html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
+
+  overflow-x: hidden;
 }
 
 * {
   font-family: "Georgia Pro", serif !important;
+  box-sizing: border-box;
 }
-
+/* * {
+  outline: 1px solid red;
+} */
 a {
   text-decoration: none !important;
+}
+
+* {
+  overflow-y: visible;
 }
