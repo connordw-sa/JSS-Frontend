@@ -2,6 +2,7 @@ import { fetchUser } from "../../utils/HelperFunctions";
 import { useEffect, useState } from "react";
 import heroImg from "../../assets/hero.png";
 import "./Landing.css";
+import Footer from "../../Components/footer/Footer";
 // imports ----------------------------------------------------------
 
 export default function Landing() {
@@ -63,14 +64,11 @@ export default function Landing() {
   }, []);
 
   return (
-    // test
-
-    <div>
+    <div className="landing-section">
       <section className="landing-hero-section">
         <img className="hero-img" src={heroImg} />
         <div className="hero-text">
-          {" "}
-          <h1 className="hero-titles">I'M GOING FOR A SMOKE.</h1>
+          <h1 className="hero-titles">You're not here to settle.</h1>
           <h1 className="hero-title"> You're here to rise.</h1>
           <h2>
             Through immersive retreats, transformational life coaching and{" "}
@@ -80,25 +78,37 @@ export default function Landing() {
           </h2>
         </div>
       </section>
+
       <div className="wrapper">
-        <section className="offer-section">
-          {" "}
+        <section className="service-section">
           <h1>Our Services</h1>
-          <div className="offer-card-wrapper">
-            <div className="offer-card">
+          <div className="service-card-wrapper">
+            <div className="service-card">
               <img src={heroImg} />
               <h2>Services 1</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+                qui consectetur quidem voluptate ab quasi distinctio, soluta
+                architecto laboriosam iste?
+              </p>
             </div>
-            <div className="offer-card">
+            <div className="service-card">
               <img src={heroImg} />
               <h2>Services 1</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+                qui consectetur quidem voluptate ab quasi distinctio, soluta
+                architecto laboriosam iste?
+              </p>
             </div>
-            <div className="offer-card">
+            <div className="service-card">
               <img src={heroImg} />
               <h2>Services 1</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+                qui consectetur quidem voluptate ab quasi distinctio, soluta
+                architecto laboriosam iste?
+              </p>
             </div>
           </div>
         </section>
@@ -106,10 +116,14 @@ export default function Landing() {
           <h1>This will be the carousel of affiliations and partnerships</h1>
           <div style={{ display: "flex", alignItems: "center" }}>
             <button onClick={prev}>&larr;</button>
-            <div style={{ display: "flex", gap: "1rem" }}>
+            <div className="affiliation-img-div">
               {getVisibleItems().map((item) => (
                 <div key={item.id}>
-                  <img src={item.img} alt="Affiliation" width={150} />
+                  <img
+                    src={item.img}
+                    alt="Affiliation"
+                    className="affiliation-img"
+                  />
                   <p>{item.caption}</p>
                 </div>
               ))}
@@ -117,7 +131,65 @@ export default function Landing() {
             <button onClick={next}>&rarr;</button>
           </div>
         </section>
-        <section className="review-section"></section>
+        <section className="review-section">
+          <div className="review-text">
+            <h1>Reviews</h1>
+            <h2>Review 1</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum qui
+              sapiente modi, distinctio iure asperiores!
+            </p>
+            <h2>Review 2</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum qui
+              sapiente modi, distinctio iure asperiores!
+            </p>
+            <h2>Review 3</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum qui
+              sapiente modi, distinctio iure asperiores!
+            </p>
+            <h2>Review 4</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum qui
+              sapiente modi, distinctio iure asperiores!
+            </p>
+          </div>
+          <img src={heroImg} />
+        </section>
+        <section className="service-section">
+          <h1>Articles we recommend</h1>
+          <div className="service-card-wrapper">
+            <div className="service-card">
+              <img src={heroImg} />
+              <h2>Article 1</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+                qui consectetur quidem voluptate ab quasi distinctio, soluta
+                architecto laboriosam iste?
+              </p>
+            </div>
+            <div className="service-card">
+              <img src={heroImg} />
+              <h2>Article 1</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+                qui consectetur quidem voluptate ab quasi distinctio, soluta
+                architecto laboriosam iste?
+              </p>
+            </div>
+            <div className="service-card">
+              <img src={heroImg} />
+              <h2>Article 1</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+                qui consectetur quidem voluptate ab quasi distinctio, soluta
+                architecto laboriosam iste?
+              </p>
+            </div>
+          </div>
+        </section>
+        <Footer />
       </div>
     </div>
   );

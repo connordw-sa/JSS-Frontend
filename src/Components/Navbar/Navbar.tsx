@@ -36,6 +36,9 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="nav-links">
+          <Link to="/">
+            <h2>Home</h2>
+          </Link>
           <Link to="/About">
             <h2>About</h2>
           </Link>
@@ -47,7 +50,7 @@ export default function Navbar() {
           </Link>
           <button className="nav-profile-link">
             <Link to="/Profile">
-              <img src={avatar} alt="avatar" />
+              <h2>Book now</h2>
             </Link>
           </button>
         </div>
